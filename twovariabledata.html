@@ -1,0 +1,408 @@
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+    <script id="MathJax-script" async 
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> 
+    </script> 	
+
+
+	<p dir="ltr">In real life situations, such as economics, biology, and many other fields, there are relationships among variables. This means that when an occurrence results or when a variable has the tendency to influence the other, the observations from the two variables are put together for analysis to establish the nature of relationships and the strength of the relationship.&nbsp;Thus, two-variable data demonstrates how results from a formula affect the overall output when any of the two input values changes.
+	Two-variable data is also called bivariate data in statistics- each value of one variable is coupled with a value of the other. Normally, it would be interesting to look into the possibility of a link between the two variables.</p>
+	</div>
+	
+	<h2>Rolling a Die and Throwing a Coin </h2> 
+	<p> We can draw a sample space for rolling a die and throwing a coin </p>
+	
+		<table style="width: 100%;">
+			<tbody>
+				<tr>
+					<td >Coin/Die</td>
+					<td>X<sub>1</sub> = 1</td>
+					<td>X<sub>2</sub> = 2</td>
+					<td>X<sub>3</sub> = 3</td>
+					<td>X<sub>4</sub> = 4</td>
+					<td>X<sub>5</sub> = 5</td>
+					<td>X<sub>6</sub> = 6</td>
+				</tr>
+				<tr>
+					<td>Y<sub>1</sub> = Head (H)</td>
+					<td>P(H,1)</td>
+					<td>P(H,2)</td>
+					<td>P(H,3)</td>
+					<td>P(H,4)</td>
+					<td>P(H,5)</td>
+					<td>P(H,6)</td>
+				</tr>
+				<tr>
+					<td>Y<sub>2</sub> = Tails (T)</td>
+					<td>P(T,1)</td>
+					<td>P(T,2)</td>
+					<td>P(T,3)</td>
+					<td>P(T,4)</td>
+					<td>P(T,5)</td>
+					<td>P(T,6)</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Total Probability </h3>
+		         <p> There are 12 outcomes with equal probablity. X is the random variable of rolling a die. Y is the random variable of throwing a coin.
+		 <br>
+		 \( P(X_{i},Y_{j})=  {1 \over 12}\)
+		 <br>
+		 Total Probability = \(\Sigma_{i=1}^{6}\Sigma_{j=1}^{2} P(X_{i},Y_{j}) =  P(X_{1},Y_{1}) + P(X_{1},Y_{2})+.... +  P(X_{6},Y_{1}) + P(X_{6},Y_{2})\)  = 1
+		 <br>
+		 <h3>Expected Value </h3>
+		 
+		 \(\mathbb{E}[XY] = \Sigma_{i=1}^{6}\Sigma_{j=1}^{2} X_{i}Y_{j}P(X_{i},Y_{j})\)
+		 </br>
+		 Since rolling a die and throwing a coin are both independent variables P(X_{i},Y_{j}) = P(X_{i})P(Y_{j})
+		 </br>
+		 \(\mathbb{E}[XY] = \Sigma_{i=1}^{6}\Sigma_{j=1}^{2} X_{i}Y_{j}P(X_{i})P(Y_{j})\)
+		 </br>
+		 Now you split the "i"s and the "j"s
+		 </br>
+		 \(\mathbb{E}[XY] = \Sigma_{i=1}^{6}X_{i}P(X_{i})\Sigma_{j=1}^{2} Y_{j}P(Y_{j})\) 
+		 </br>
+		 You should be able to spot two expected values
+		 </br>
+		 \(\mathbb{E}[XY] =  \mathbb{E}[X]\mathbb{E}[Y]\) 
+		 Rearranging this equation we can see that the Covariance is 0.
+		 </br>
+		 \(\mathbb{Cov}[X,Y] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]  = 0\)
+		 <br>
+		 This is a property of indepenence. We have shown that the covariance of two independent variables is 0.
+		<h2> Correlation </h2>
+		Variables that are strongly correlated imply that there is a relationship between them for example students who do well at Mathematics tend to do well at Physics.
+        Two variables can be either positively correlated, negatively correlated or no correlation.
+		</br>
+		The correlation coefficient r is used to determine the correction.
+		</br>
+		 \(r = {\mathbb{Cov}[X,Y] \over \sqrt{\mathbb{Var}[X]}\sqrt{\mathbb{Var}[Y]}}\)
+		 </br>
+		 r is  a value between -1 or 1. When r is positive, this implies positive correlation. When r is negative, the pair of data is negatively correlated.
+		 If r is 0, then there is no correlation.
+		<h3> Positive correlation </h3>
+		For positive correlation most of the data is in the first or third quadrant. An example of positive correlation would be again Mathematics test result and Physics test. The centre of the 4 quadrants is \((\bar{x},\bar{y})\)
+        </br>
+        </br>		
+		<canvas id="my-canvas" width="600" height="500"></canvas>
+		\[
+\begin{array}{|c|c|c|}
+            \hline
+	\text{Quadrant} & x_{i}-\bar{x} & y_{i}-\bar{y} & [x_{i}-\bar{x}][y_{i}-\bar{y}] & \Sigma[x_{i}-\bar{x}][y_{i}-\bar{y}]\\
+    \hline
+	1 & \text{+ve} &  \text{+ve} &  \text{+ve} \\
+	\hline
+    2 &  &  &  \\
+	\hline
+    3 & \text{+ve} &  \text{+ve} &  \text{+ve} \\
+	\hline
+    4 &  &  &  \\
+	\hline
+	\end{array}
+\]
+	     \(\mathbb{Cov}[X,Y] = \Sigma [x_{i}-\bar{x}][y_{i}-\bar{y}] > 0 \)
+		The covariance is positive, hence the correlation coefficient is also positive.
+		<h3> Negative correlation </h3>
+				\[
+\begin{array}{|c|c|c|}
+            \hline
+	\text{Quadrant} & x_{i}-\bar{x} & y_{i}-\bar{y} & [x_{i}-\bar{x}][y_{i}-\bar{y}] & \Sigma[x_{i}-\bar{x}][y_{i}-\bar{y}]\\
+    \hline
+	1 &  &  & &  \\
+	\hline
+    2 & \text{-ve} &  \text{-ve} &  \text{-ve} &  \text{-ve}  \\
+	\hline
+    3 & &  &  \\
+	\hline
+    4 & \text{+ve} &  \text{-ve} &  \text{-ve} &  \text{-ve} \\
+	\hline
+	\end{array}
+\]
+		\(\mathbb{Cov}[X,Y] = \Sigma [x_{i}-\bar{x}][y_{i}-\bar{y}] < 0 \)
+		For the negative correlation, most of the data is in the second or fourth quadrant. An example of negative correlation could be hours playing video games and hours completing homework.
+		The covariance is negative, hence the correlation coefficient is also negative.
+		<h3> No correlation </h3>
+		For no correlation most of the data is evenly distribution in all four quadrants.
+		An example of correlation could possibly Maths test results and the time to complete a 5km race. There should be no relationship between the two variables.
+		\begin{array}{|c|c|c|}
+            \hline
+	\text{Quadrant} & x_{i}-\bar{x} & y_{i}-\bar{y} & [x_{i}-\bar{x}][y_{i}-\bar{y}] & \Sigma[x_{i}-\bar{x}][y_{i}-\bar{y}]\\
+    \hline
+	1 &\text{+ve} &  \text{+ve} &  \text{+ve} &  \text{+ve}  \\
+	\hline
+    2 & \text{-ve} &  \text{-ve} &  \text{-ve} &  \text{-ve}  \\
+	\hline
+    3 &\text{+ve} &  \text{+ve} &  \text{+ve} &  \text{+ve}  \\
+	\hline
+    4 & \text{+ve} &  \text{-ve} &  \text{-ve} &  \text{-ve} \\
+	\hline
+	\end{array}
+		
+		 \(\mathbb{Cov}[X,Y] = \Sigma [x_{i}-\bar{x}][y_{i}-\bar{y}] = 0 \)
+		Since the points are evenly distributed in all quadrants the values in the last column will cancel itself out.
+		The covariance is 0, hence the correlation coefficient is also 0. Earlier we say that independent variables such as a die and a coin have no relationship, hence the covariance is 0.
+	 <h3> Using vectors to show that  |r|&leq;1  </h3>
+	 \( u = \begin{bmatrix} x_{1}-\bar{x} \cr x_{2}-\bar{x} \cr ... \cr x_{n}-\bar{x} \end{bmatrix} \)
+	 </br>
+	 \( v = \begin{bmatrix} y_{1}-\bar{y} \cr y_{2}-\bar{y} \cr ... \cr y_{n}-\bar{y} \end{bmatrix} \)
+	</br>
+	\( u.v = \begin{bmatrix} (x_{1}-\bar{x})(y_{1}-\bar{y} ) \cr (x_{2}-\bar{x})(y_{1}-\bar{y}) \cr ... \cr (x_{n}-\bar{x})(y_{n}-\bar{y}) \end{bmatrix} \)
+	</br>
+	vectors u, v and u- v form a triangle. </br>
+	<img src="triangle.jpg" alt="triangle">
+	<p>Using the cosine rule</p>
+
+	<p>\(|\vec{u}-\vec{v}|^2 = |\vec{u}|^2 + |\vec{v}|^2- |\vec{u}||\vec{v}|cos(\theta)\)</p>
+
+	<p>Recall from knowledge of vectors that \(|\vec{a}|^{2} = \vec{a}.\vec{a} \)</p>
+
+	<p>\((\vec{u}-\vec{v}).(\vec{u}-\vec{v}) = |\vec{u}|^2 + |\vec{v}|^2- |\vec{u}||\vec{v}|cos(\theta)\)</p>
+
+	<p>We can expand the dot product.</p>
+
+	<p>\(\vec{u}.\vec{u} -2\vec{u}.\vec{v}+\vec{v}.\vec{v} = |\vec{u}|^2 + |\vec{v}|^2- 2|\vec{u}||\vec{v}|cos(\theta)\)</p>
+
+	<p>Again using the property \(|\vec{a}|^{2} = \vec{a}.\vec{a} \)</p>
+
+	<p>\(|\vec{u}|^2 -2\vec{u}.\vec{v}+|\vec{v}|^2 = |\vec{u}|^2 + |\vec{v}|^2- 2|\vec{u}||\vec{v}|cos(\theta)\)</p>
+
+	<p>You can simplify the equation so that you end up with:</p>
+
+	<p>\({\vec{u}.\vec{v} \over |\vec{u}||\vec{v}|} = cos(\theta)\)</p>
+
+	<p>\(cos(\theta) \) is between -1 and 1, hence we have shown that:</p>
+
+	<p>\( -1 &le;{\vec{u}.\vec{v} \over |\vec{u}||\vec{v}|} &le;1\)</p>
+
+	<p>This is proof that the correction coefficient is between -1 and 1.</p>
+</div>
+<div elementid="102479970">
+	<div class="key-takeaways-class">
+
+		<h2>Two-Variable Data - Key takeaways</h2>
+
+		<ul>
+
+			<ul>
+				<li aria-level="1" dir="ltr">
+
+					<p dir="ltr" role="presentation"><span>The covariance of independent variables = 0</span></p>
+				</li>
+				<li aria-level="1" dir="ltr">
+
+					<p dir="ltr" role="presentation"><span>Independent variables have a correlation = 0</span></p>
+				</li>
+				<li aria-level="1" dir="ltr">
+
+					<p dir="ltr" role="presentation"><span>&nbsp;a pair of data can have positive, negative or no correlation</span></p>
+				</li>
+				<li aria-level="1" dir="ltr">
+
+					<p dir="ltr" role="presentation"><span>Correlation coefficient&nbsp;</span><span>r</span><span>&nbsp;takes on values from -1 to 1.</span></p>
+				</li>
+			</ul></ul>
+	</div>
+	<br>
+</div>
+<div elementid="102478833">
+	<div>
+
+		<p dir="ltr" role="presentation">
+			<br>
+		</p>
+
+		<p>
+			<br>
+		</p>
+	</div>
+
+	<p>
+		<br>
+	</p>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+    var grid_size = 25;
+    var x_axis_distance_grid_lines = 10;
+    var y_axis_distance_grid_lines = 10;
+    var x_axis_starting_point = { number: 1, suffix: '' };
+    var y_axis_starting_point = { number: 1, suffix: '' };
+    
+    var canvas = document.getElementById("my-canvas");
+    var ctx = canvas.getContext("2d");
+    
+    var canvas_width = canvas.width;
+    var canvas_height = canvas.height;
+    
+    var num_lines_x = Math.floor(canvas_height/grid_size);
+    var num_lines_y = Math.floor(canvas_width/grid_size);
+    
+    // Draw grid lines along X-axis
+    for(var i=0; i<=num_lines_x; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        
+        // If line represents X-axis draw in different color
+        if(i == x_axis_distance_grid_lines) 
+            ctx.strokeStyle = "#000000";
+        else
+            ctx.strokeStyle = "#e9e9e9";
+        
+        if(i == num_lines_x) {
+            ctx.moveTo(0, grid_size*i);
+            ctx.lineTo(canvas_width, grid_size*i);
+        }
+        else {
+            ctx.moveTo(0, grid_size*i+0.5);
+            ctx.lineTo(canvas_width, grid_size*i+0.5);
+        }
+        ctx.stroke();
+    }
+    
+    // Draw grid lines along Y-axis
+    for(i=0; i<=num_lines_y; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        
+        // If line represents X-axis draw in different color
+        if(i == y_axis_distance_grid_lines) 
+            ctx.strokeStyle = "#000000";
+        else
+            ctx.strokeStyle = "#e9e9e9";
+        
+        if(i == num_lines_y) {
+            ctx.moveTo(grid_size*i, 0);
+            ctx.lineTo(grid_size*i, canvas_height);
+        }
+        else {
+            ctx.moveTo(grid_size*i+0.5, 0);
+            ctx.lineTo(grid_size*i+0.5, canvas_height);
+        }
+        ctx.stroke();
+    }
+    
+    // Translate to the new origin. Now Y-axis of the canvas is opposite to the Y-axis of the graph. So the y-coordinate of each element will be negative of the actual
+    ctx.translate(y_axis_distance_grid_lines*grid_size, x_axis_distance_grid_lines*grid_size);
+    
+    // Ticks marks along the positive X-axis
+    for(i=1; i<(num_lines_y - y_axis_distance_grid_lines); i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+    
+        // Draw a tick mark 6px long (-3 to 3)
+        ctx.moveTo(grid_size*i+0.5, -3);
+        ctx.lineTo(grid_size*i+0.5, 3);
+        ctx.stroke();
+    
+        // Text value at that point
+        ctx.font = '9px Arial';
+        ctx.textAlign = 'start';
+        ctx.fillText(x_axis_starting_point.number*i + x_axis_starting_point.suffix, grid_size*i-2, 15);
+    }
+    
+    // Ticks marks along the negative X-axis
+    for(i=1; i<y_axis_distance_grid_lines; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+    
+        // Draw a tick mark 6px long (-3 to 3)
+        ctx.moveTo(-grid_size*i+0.5, -3);
+        ctx.lineTo(-grid_size*i+0.5, 3);
+        ctx.stroke();
+    
+        // Text value at that point
+        ctx.font = '9px Arial';
+        ctx.textAlign = 'end';
+        ctx.fillText(-x_axis_starting_point.number*i + x_axis_starting_point.suffix, -grid_size*i+3, 15);
+    }
+    
+    // Ticks marks along the positive Y-axis
+    // Positive Y-axis of graph is negative Y-axis of the canvas
+    for(i=1; i<(num_lines_x - x_axis_distance_grid_lines); i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+    
+        // Draw a tick mark 6px long (-3 to 3)
+        ctx.moveTo(-3, grid_size*i+0.5);
+        ctx.lineTo(3, grid_size*i+0.5);
+        ctx.stroke();
+    
+        // Text value at that point
+        ctx.font = '9px Arial';
+        ctx.textAlign = 'start';
+        ctx.fillText(-y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, grid_size*i+3);
+    }
+    
+    // Ticks marks along the negative Y-axis
+    // Negative Y-axis of graph is positive Y-axis of the canvas
+    for(i=1; i<x_axis_distance_grid_lines; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#000000";
+    
+        // Draw a tick mark 6px long (-3 to 3)
+        ctx.moveTo(-3, -grid_size*i+0.5);
+        ctx.lineTo(3, -grid_size*i+0.5);
+        ctx.stroke();
+    
+        // Text value at that point
+        ctx.font = '9px Arial';
+        ctx.textAlign = 'start';
+        ctx.fillText(y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, -grid_size*i+3);
+    }
+    var xx = [0,0,0,0,0];
+    var yy = [0,0,0,0,0];
+    var meanx = 0
+	var meany = 0
+
+
+
+      for (var k = 0; k < 20; k++) {
+        xx[k] = -10+k;
+        yy[k] = Math.pow(-1,k)*Math.floor(5*Math.random());
+        meanx = meanx+xx[k]/20
+	    meany = meanx+xx[k]/20
+        ctx.beginPath();
+	   ctx.arc((xx[k])*25, -yy[k]*25, 3, 0, 2*Math.PI);
+       ctx.stroke();
+      }
+ 
+                      for (var j = 1; j < 20; j++) {
+        ctx.beginPath();
+        ctx.lineTo((j-1-10)*25, -meany*25);
+        ctx.lineTo((j-10)*25, -meany*25);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'blue';
+        ctx.stroke();
+                        }
+						
+		                      for (var j = 1; j < 20; j++) {
+        ctx.beginPath();
+        ctx.lineTo(meanx*25, -10*25);
+        ctx.lineTo(meanx*25, 10*25);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'blue';
+        ctx.stroke();
+                        }	
+ctx.font = "30px Comic Sans MS";						
+ctx.fillStyle = "red";
+ctx.fillText("(x,y)", meanx*25-28, -meany*25+3);
+ctx.fillText(" _ _", meanx*25-28, -meany*25-20+3);						
+						
+</script>
+</html>
+
+
+	
+	
+	
