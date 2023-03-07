@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+    <h1>Python</h1>
+    <py-config>packages = ["matplotlib", "numpy"]</py-config>
+    <py-script>
+import numpy as np
+import matplotlib.pyplot as plt
+x1 = 2
+def f(x): 
+    return x**2
+
+# Define parabola derivative
+def slope(x): 
+    return 2*x
+
+def g(x):
+  return 2*x1*x+(x1**2-2*x1*x1)
+
+# Define x data range for parabola
+x = np.linspace(-5,5,100)
+
+plt.plot(x, f(x))
+plt.plot(x, g(x))
+plt.show()
+    </py-script>
+  </body>
+</html>
