@@ -1,31 +1,78 @@
 <html>
+    <html>
   <head>
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   </head>
-  <body>
-    <h1>Python</h1>
-    <py-config>packages = ["matplotlib", "numpy"]</py-config>
-    <py-script>
-import numpy as np
-import matplotlib.pyplot as plt
-x1 = 2
-def f(x): 
-    return x**2
+<div id="mpl"></div>
+<py-config>
+packages = [
+  "matplotlib", "sympy"
+]
+</py-config>
+<h1>Limits</h1>
+<py-script>
+import sympy as sym
+x = sym.symbols('x')
+# Calculating limit of f(x) = x as x->∞
+limit1 = sym.limit(x, x, sym.oo)
+print(limit1)
 
-# Define parabola derivative
-def slope(x): 
-    return 2*x
+# Calculating limit of f(x) = 1/x as x->∞
+limit2 = sym.limit(1/x, x, sym.oo)
+print(limit2)
 
-def g(x):
-  return 2*x1*x+(x1**2-2*x1*x1)
+# Calculating limit of f(x) = sin(x)/x as x->0
+limit3 = sym.limit(sym.sin(5*x)/x, x, 0)
+print(limit3)
+</py-script>
+<h1>Differentiation</h1>
+<py-script>
+  x, y, z = sym.symbols('x y z')
 
-# Define x data range for parabola
-x = np.linspace(-5,5,100)
+# expression of which we have to find derivative
+exp = x**3
 
-plt.plot(x, f(x))
-plt.plot(x, g(x))
-plt.show()
-    </py-script>
-  </body>
+# Differentiating exp with respect to x
+derivative1_x = sym.diff(exp, x)
+print('derivative w.r.t x: ',
+	derivative1_x)
+
+
+
+</py-script>
+</html>
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+</py-script>
 </html>
