@@ -4,15 +4,17 @@
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   </head>
-<div id="mpl"></div>
 <py-config>
 packages = [
   "matplotlib", "sympy"
 ]
 </py-config>
 <h1>Limits</h1>
-<py-script>
+<p> This is an example of limits</p>
+<div id="limit"></div>
+<py-script output="limit">
 import sympy as sym
+print("This is about Limits")
 x = sym.symbols('x')
 # Calculating limit of f(x) = x as x->∞
 limit1 = sym.limit(x, x, sym.oo)
@@ -27,8 +29,14 @@ limit3 = sym.limit(sym.sin(5*x)/x, x, 0)
 print(limit3)
 </py-script>
 <h1>Differentiation</h1>
-<py-script>
-  x, y, z = sym.symbols('x y z')
+<p> This is about differentiation</p>
+<div id="differentiation"></div>
+<py-script output="differentiation">
+import enum
+import sympy as sym
+print('This is about differentiating')
+# Declaring variables
+x, y, z = sym.symbols('x y z')
 
 # expression of which we have to find derivative
 exp = x**3
@@ -37,9 +45,6 @@ exp = x**3
 derivative1_x = sym.diff(exp, x)
 print('derivative w.r.t x: ',
 	derivative1_x)
-
-
-
 </py-script>
 </html>
  
